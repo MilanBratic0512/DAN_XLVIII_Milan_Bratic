@@ -25,6 +25,7 @@ namespace Zadatak_1.ViewModel
             tblorder.CustomerJMBG = username;
             //filling list with data from database
             OrderList = GetOrders();
+            
         }
         private tblOrder tblorder;
         public tblOrder tblOrder
