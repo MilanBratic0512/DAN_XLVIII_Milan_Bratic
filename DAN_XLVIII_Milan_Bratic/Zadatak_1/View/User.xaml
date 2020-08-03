@@ -1,0 +1,160 @@
+﻿<Window x:Class="Zadatak_1.View.User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.View"
+        mc:Ignorable="d"
+        Title="User" Height="450" Width="1500">
+    <Grid>
+        <Label Content="Margarita  (350 rsd)"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="25,24,0,0"
+               Width="123" />
+        <Label Content="Kapricoza  (490 rsd)"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="25,70,0,0"
+               Width="140" />
+        <Label Content="Napolitana  (630 rsd)"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="25,115,0,0"
+               Width="123" />
+        <Label Content="Sicilijana  (750 rsd)"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="25,159,0,0"
+               Width="130" />
+        <Label Content="Special  (980 rsd)"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="25,200,0,0"
+               Width="130" />
+        <TextBox Name="tbMargarita"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Margarita, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="195,28,0,0"
+                 PreviewTextInput="NumbersOnlyTextBox"
+                 TextChanged="TbMargarita_TextChanged" />
+        <TextBox Name="tbKapricoza"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Kapriocoza, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="195,74,0,0"
+                 PreviewTextInput="NumbersOnlyTextBox"
+                 TextChanged="TbKapricoza_TextChanged" />
+        <TextBox Name="tbNapolitana"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Napolitana,UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="195,119,0,0"
+                 PreviewTextInput="NumbersOnlyTextBox"
+                 TextChanged="TbNapolitana_TextChanged" />
+        <TextBox Name="tbSicilijana"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Sicilijana,UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="195,163,0,0"
+                 PreviewTextInput="NumbersOnlyTextBox"
+                 TextChanged="TbSicilijana_TextChanged" />
+        <TextBox Name="tbSpecial"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Special,UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="195,204,0,0"
+                 PreviewTextInput="NumbersOnlyTextBox"
+                 TextChanged="TbSpecial_TextChanged" />
+        <Button Content="Order"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="50,335,0,0"
+                Command="{Binding Order,UpdateSourceTrigger=PropertyChanged}" />
+        <Button Content="Close"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="215,335,0,0"
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox HorizontalAlignment="Left"
+                 Margin="195,250,0,0"
+                 TextWrapping="Wrap"
+                 Name="tbTotal"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Height="30" />
+        <Label Content="Total amount:"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="65,254,0,0"
+               Width="100" />
+        <Grid Height="250"
+              Width="350">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="141*" />
+                <ColumnDefinition Width="49*" />
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="DataGridUsers"
+                      ItemsSource="{Binding OrderList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding tblOrder, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="Black"
+                      BorderBrush="Black"
+                      Foreground="Black"
+                      FontWeight="Bold"
+                      Margin="-221,-18,-215,77"
+                      Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Napolitana"
+                                        Binding="{Binding Napolitana}" />
+                    <DataGridTextColumn Header="Kapricoza"
+                                        Binding="{Binding Kapricoza}" />
+                    <DataGridTextColumn Header="Margarita"
+                                        Binding="{Binding Margarita}" />
+                    <DataGridTextColumn Header="Sicilijana"
+                                        Binding="{Binding Sicilijana}" />
+                    <DataGridTextColumn  Header="Special"
+                                         Binding="{Binding Special}" />
+                    <DataGridTextColumn  Header="Total price"
+                                         Binding="{Binding TotalAmount}" />
+                    <DataGridTextColumn  Header="Status"
+                                         Binding="{Binding OrderStatus}" />
+                    <DataGridTextColumn  Header="Customer JMBG"
+                                         Binding="{Binding CustomerJMBG}" />
+                    <DataGridTextColumn  Header="Order time"
+                                         Binding="{Binding OrderDate}" />
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Label Content="Your orders"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               RenderTransformOrigin="1.316,0.577"
+               Margin="645,10,0,0"
+               Width="223"
+               FontSize="26"
+               FontWeight="Heavy" />
+
+    </Grid>
+</Window>
