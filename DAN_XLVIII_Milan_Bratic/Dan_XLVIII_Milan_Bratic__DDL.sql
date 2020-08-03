@@ -1,8 +1,8 @@
 --Creating database only if database is not created yet
-IF DB_ID('Zadatak_44') IS NULL
-CREATE DATABASE Zadatak_44
+IF DB_ID('Zadatak_48') IS NULL
+CREATE DATABASE Zadatak_48
 GO
-USE Zadatak_44;
+USE Zadatak_48;
 
 if exists (SELECT name FROM sys.sysobjects WHERE name = 'tblPrice')
 drop table tblPrice;
@@ -18,17 +18,17 @@ Price int
 
 create table tblOrder(
 OrderID int identity (1,1) primary key,
-BigPizza int,
-MediumPizza int,
-SmallPizza int,
-FamilyPizza int,
-SpecialPizza int,
+Napolitana int,
+Kapricoza int,
+Margarita int,
+Sicilijana int,
+Special int,
 OrderDate nvarchar (30),
 CustomerJMBG nvarchar (30),
 OrderStatus nvarchar (30),
 TotalAmount int
 )
 
-Insert into tblPrice values ('BigPizza',630),('MediumPizza',490),('SmallPizza',350),('FamilyPizza',750),('SpecialPizza',980);
+Insert into tblPrice values ('Napolitana',630),('Kapricoza',490),('Margarita',350),('Sicilijana',750),('Special',980);
 
 
